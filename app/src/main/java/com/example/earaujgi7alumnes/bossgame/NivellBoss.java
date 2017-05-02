@@ -5,17 +5,36 @@ package com.example.earaujgi7alumnes.bossgame;
  */
 
 class NivellBoss {
+    int vida;
+    int puntsmal;
+
+    public void init(int vida,int puntsmal){
+        this.vida = vida;
+        this.puntsmal = puntsmal;
+    }
+
+    public int getPuntsmal() {
+        return puntsmal;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setPuntsmal(int puntsmal) {
+        this.puntsmal = puntsmal;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
 
 
-    public void init() {
+    public void updateBoss(float v) { // v -> segundos des de la ultima update
 
     }
 
-    public void update(float v) {
-
-    }
-
-    public void render(Painter graphics) {
+    public void renderBoss(Painter graphics) {
 
     }
 }
