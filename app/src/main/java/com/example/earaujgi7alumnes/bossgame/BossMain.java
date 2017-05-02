@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.example.earaujgi7alumnes.bossgame.model.Jugador;
@@ -14,7 +15,6 @@ import com.example.earaujgi7alumnes.bossgame.model.Millora;
 import com.example.earaujgi7alumnes.bossgame.model.MilloresAdapter;
 import com.example.earaujgi7alumnes.bossgame.model.Model;
 import com.example.earaujgi7alumnes.bossgame.model.Nivell1;
-import com.example.earaujgi7alumnes.bossgame.model.NivellBoss;
 
 import java.util.ArrayList;
 
@@ -47,8 +47,8 @@ public class BossMain extends Activity {
         setContentView(R.layout.boss_vista);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        //RelativeLayout surface = (RelativeLayout)findViewById(R.id.surfaceBoss);
-        //surface.addView(bossV);
+        FrameLayout surface = (FrameLayout)findViewById(R.id.surfaceBoss);
+        surface.addView(bossV);
 
         bossV.setOnClickListener(new View.OnClickListener() {
             @Override

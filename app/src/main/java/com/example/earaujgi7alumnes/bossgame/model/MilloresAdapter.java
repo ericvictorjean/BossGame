@@ -83,7 +83,7 @@ public class MilloresAdapter extends RecyclerView.Adapter<MilloresAdapter.ViewHo
         TextView textView2 = viewHolder.valor;
         textView2.setText(millora.getValor());
         ImageButton button = viewHolder.messageButton;
-        button.setBackgroundResource(R.drawable.images);
+        button.setBackgroundResource(R.color.colorAccent);
     }
 
     // Returns the total count of items in the list

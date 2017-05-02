@@ -15,7 +15,7 @@ public class Assets {
 	public static Bitmap jefe;
 
 	public static void load() {
-		jefe = loadBitmap("images.jpg",false);
+		jefe = loadBitmap("images.jpg", false);
 	}
 
 	private static Bitmap loadBitmap(String filename, boolean transparency) {
@@ -31,8 +31,7 @@ public class Assets {
 		} else {
 			options.inPreferredConfig = Config.RGB_565;
 		}
-		Bitmap bitmap = BitmapFactory.decodeStream(inputStream, null,
-				options);
+		Bitmap bitmap = BitmapFactory.decodeStream(inputStream, null, options);
 		return bitmap;
 	}
 

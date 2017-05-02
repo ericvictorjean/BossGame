@@ -45,12 +45,10 @@ public class Nivell1 {
         this.setVida(dmg-this.getVida());
     }
 
-    public void renderBoss(Painter graphics) {
-
-    }
-    public void render(Painter g) {
+    public void renderBoss(Painter g) {
         g.setColor(Color.rgb(208, 244, 247));
         g.fillRect(0, 0, BossMain.GAME_WIDTH, BossMain.GAME_HEIGHT);
         g.drawImage(Assets.jefe, 0, 405);
+
     }
 }

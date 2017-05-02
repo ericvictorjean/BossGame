@@ -14,7 +14,7 @@
         android:id="@+id/fotoo"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/images" />
+        android:background="@color/colorAccent" />
 
     <TextView
         android:id="@+id/punts"

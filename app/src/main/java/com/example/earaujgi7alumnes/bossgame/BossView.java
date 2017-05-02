@@ -27,8 +27,7 @@ class BossView extends SurfaceView implements Runnable{
 
     public BossView(Context context, int gameWidth, int gameHeight,Model m) {
         super(context);
-        gameImage = Bitmap.createBitmap(gameWidth, gameHeight,
-                Bitmap.Config.RGB_565);
+        gameImage = Bitmap.createBitmap(gameWidth, gameHeight, Bitmap.Config.RGB_565);
         gameImageSrc = new Rect(0, 0, gameImage.getWidth(), gameImage.getHeight());
         gameImageDst = new Rect();
         gameCanvas = new Canvas(gameImage);
@@ -82,7 +81,7 @@ class BossView extends SurfaceView implements Runnable{
         Canvas screen = getHolder().lockCanvas();
         if (screen != null) {
             screen.getClipBounds(gameImageDst);
-            screen.drawBitmap(gameImage, gameImageSrc, gameImageDst, null);
+            screen.drawBitmap(gameImage, gameImageSrc, gameImageDst,null);
             getHolder().unlockCanvasAndPost(screen);
         }
     }
