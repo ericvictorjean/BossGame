@@ -7,7 +7,7 @@
     tools:context="com.example.earaujgi7alumnes.bossgame.MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/boto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"

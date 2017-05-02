@@ -1,13 +1,20 @@
-package com.example.earaujgi7alumnes.bossgame;
+package com.example.earaujgi7alumnes.bossgame.model;
+
+
+import com.example.earaujgi7alumnes.bossgame.Painter;
 
 /**
  * Created by earaujgi7.alumnes on 02/05/17.
  */
 
-abstract class NivellBoss {
+public class Nivell1 extends NivellBoss {
     int vida;
     int puntsmal;
 
+    public Nivell1(int vida,int puntsmal){
+        this.vida = 100;
+        this.puntsmal = 10;
+    }
 
     public int getPuntsmal() {
         return puntsmal;
@@ -26,8 +33,8 @@ abstract class NivellBoss {
     }
 
 
-    public void updateBoss(float v) { // v -> segundos des de la ultima update
-
+    public void updateBoss(float v,int dmg) { // v -> segundos des de la ultima update
+        this.setVida(dmg-this.getVida());
     }
 
     public void renderBoss(Painter graphics) {

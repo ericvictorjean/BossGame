@@ -7,6 +7,8 @@ import android.graphics.Rect;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.example.earaujgi7alumnes.bossgame.model.Model;
+
 /**
  * Created by earaujgi7.alumnes on 02/05/17.
  */

@@ -1,4 +1,4 @@
-package com.example.earaujgi7alumnes.bossgame;
+package com.example.earaujgi7alumnes.bossgame.model;
 
 /**
  * Created by earaujgi7.alumnes on 02/05/17.
