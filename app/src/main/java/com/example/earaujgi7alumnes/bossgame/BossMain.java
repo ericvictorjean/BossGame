@@ -26,7 +26,6 @@ class BossMain extends Activity {
             @Override
             public void onClick(View v) {
                 //TODO restar vida al bossV
-
             }
         });
     }
