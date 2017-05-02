@@ -8,16 +8,16 @@ import java.util.ArrayList;
  */
 
 public class Model {
-    public NivellBoss nivellActual;
+    public Nivell1 nivellActual;
     Jugador player;
 
 
-    public Model(NivellBoss nivell, Jugador player){
+    public Model(Nivell1 nivell, Jugador player){
         this.nivellActual = nivell;
         this.player = player;
     }
 
-    public void setNivellActual(NivellBoss nivellActual) {
+    public void setNivellActual(Nivell1 nivellActual) {
         this.nivellActual = nivellActual;
     }
 
@@ -29,7 +29,7 @@ public class Model {
         return player;
     }
 
-    public NivellBoss getNivellActual() {
+    public Nivell1 getNivellActual() {
         return nivellActual;
     }
 

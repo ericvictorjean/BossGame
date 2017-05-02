@@ -1,6 +1,7 @@
 package com.example.earaujgi7alumnes.bossgame;
 
 import android.app.Activity;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,8 +28,9 @@ public class BossMain extends Activity {
     public static final int GAME_HEIGHT = 450;
     public static BossView bossV;
     public static Jugador player;
-    public static NivellBoss nivellactual;
+    public static Nivell1 nivellactual;
     public static Model m;
+    public static AssetManager assets;
 
     ArrayList<Millora> millores;
 
@@ -40,6 +42,7 @@ public class BossMain extends Activity {
         player = new Jugador(100,5);
         nivellactual = new Nivell1(100,10);
         m = new Model(nivellactual,player);
+        assets = getAssets();
 
         setContentView(R.layout.boss_vista);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);

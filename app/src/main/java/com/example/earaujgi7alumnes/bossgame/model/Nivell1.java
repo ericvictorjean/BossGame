@@ -1,13 +1,21 @@
 package com.example.earaujgi7alumnes.bossgame.model;
 
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+
+import com.example.earaujgi7alumnes.bossgame.Assets;
+import com.example.earaujgi7alumnes.bossgame.BossMain;
 import com.example.earaujgi7alumnes.bossgame.Painter;
+import com.example.earaujgi7alumnes.bossgame.R;
 
 /**
  * Created by earaujgi7.alumnes on 02/05/17.
  */
 
-public class Nivell1 extends NivellBoss {
+public class Nivell1 {
     int vida;
     int puntsmal;
 
@@ -39,5 +47,10 @@ public class Nivell1 extends NivellBoss {
 
     public void renderBoss(Painter graphics) {
 
+    }
+    public void render(Painter g) {
+        g.setColor(Color.rgb(208, 244, 247));
+        g.fillRect(0, 0, BossMain.GAME_WIDTH, BossMain.GAME_HEIGHT);
+        g.drawImage(Assets.jefe, 0, 405);
     }
 }

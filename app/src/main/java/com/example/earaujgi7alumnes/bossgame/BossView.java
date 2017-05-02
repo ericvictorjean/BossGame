@@ -73,7 +73,7 @@ class BossView extends SurfaceView implements Runnable{
     }
 
     private void updateAndRender(long delta) {
-        m.nivellActual.updateBoss((delta / 1000f)); // segundos
+        m.nivellActual.updateBoss((delta / 1000f),1); // segundos
         m.nivellActual.renderBoss(graphics);
         renderGameImage();
     }
