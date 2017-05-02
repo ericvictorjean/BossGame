@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 
 import com.example.earaujgi7alumnes.bossgame.model.Jugador;
 import com.example.earaujgi7alumnes.bossgame.model.Millora;
@@ -22,9 +23,9 @@ import java.util.ArrayList;
  */
 
 public class BossMain extends Activity {
-    //public static final int GAME_WIDTH = 800;
-    //public static final int GAME_HEIGHT = 450;
-    //public static BossView bossV;
+    public static final int GAME_WIDTH = 800;
+    public static final int GAME_HEIGHT = 450;
+    public static BossView bossV;
     public static Jugador player;
     public static NivellBoss nivellactual;
     public static Model m;
@@ -35,13 +36,28 @@ public class BossMain extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.boss_vista);
+        bossV = new BossView(this, GAME_WIDTH, GAME_HEIGHT,m);
         player = new Jugador(100,5);
         nivellactual = new Nivell1(100,10);
         m = new Model(nivellactual,player);
 
-        RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvContacts);
+        setContentView(R.layout.boss_vista);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+        //RelativeLayout surface = (RelativeLayout)findViewById(R.id.surfaceBoss);
+        //surface.addView(bossV);
+
+        bossV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO restar vida al bossV
+            }
+        });
+
+
+
+        // Lookup the recyclerview in activity layout
+        RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvContacts);
         // Initialize millores
         millores = Millora.createMillorasList(20);
         // Create adapter passing in the sample user data
@@ -50,16 +66,6 @@ public class BossMain extends Activity {
         rvContacts.setAdapter(adapter);
         // Set layout manager to position the items
         rvContacts.setLayoutManager(new LinearLayoutManager(this));
-
-       //bossV = new BossView(this, GAME_WIDTH, GAME_HEIGHT,m);
-
-        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        /*bossV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO restar vida al bossV
-            }
-        });*/
     }
 
 }
