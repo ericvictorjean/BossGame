@@ -21,19 +21,16 @@ class BossView extends SurfaceView implements Runnable{
 
     private Thread gameThread;
     private volatile boolean running = false;
-    private volatile NivellBoss nivellActual;
 
 
-    public BossView(Context context, int gameWidth, int gameHeight,Jugador Player) {
+    public BossView(Context context, int gameWidth, int gameHeight,Model m) {
         super(context);
         gameImage = Bitmap.createBitmap(gameWidth, gameHeight,
                 Bitmap.Config.RGB_565);
-        gameImageSrc = new Rect(0, 0, gameImage.getWidth(),
-                gameImage.getHeight());
+        gameImageSrc = new Rect(0, 0, gameImage.getWidth(), gameImage.getHeight());
         gameImageDst = new Rect();
         gameCanvas = new Canvas(gameImage);
         graphics = new Painter(gameCanvas);
-        Jugador p = Player;
         SurfaceHolder holder = getHolder();
         holder.addCallback(new SurfaceHolder.Callback() {
 
@@ -74,8 +71,8 @@ class BossView extends SurfaceView implements Runnable{
     }
 
     private void updateAndRender(long delta) {
-        nivellActual.updateBoss((delta / 1000f)); // segundos
-        nivellActual.renderBoss(graphics);
+        m.nivellActual.updateBoss((delta / 1000f)); // segundos
+        m.nivellActual.renderBoss(graphics);
         renderGameImage();
     }
 

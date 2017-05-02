@@ -8,7 +8,7 @@ public class Model {
     NivellBoss nivellActual;
     Jugador player;
 
-    public void init(NivellBoss nivell, Jugador player){
+    public Model(NivellBoss nivell, Jugador player){
         this.nivellActual = nivell;
         this.player = player;
     }
