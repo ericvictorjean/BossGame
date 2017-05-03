@@ -1,20 +1,24 @@
-package com.example.earaujgi7alumnes.bossgame.model;
+package com.example.earaujgi7alumnes.bossgame;
 
 
-import java.util.ArrayList;
+import com.example.earaujgi7alumnes.bossgame.model.Jugador;
 
 /**
  * Created by earaujgi7.alumnes on 02/05/17.
  */
 
 public class Model {
-    public Nivell1 nivellActual;
+    private static Nivell1 nivellActual;
     Jugador player;
 
 
     public Model(Nivell1 nivell, Jugador player){
         this.nivellActual = nivell;
         this.player = player;
+    }
+
+    public static Nivell1 getNivell() {
+        return nivellActual;
     }
 
     public void setNivellActual(Nivell1 nivellActual) {

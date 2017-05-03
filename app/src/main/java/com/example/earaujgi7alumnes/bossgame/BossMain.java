@@ -5,16 +5,12 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.example.earaujgi7alumnes.bossgame.model.Jugador;
 import com.example.earaujgi7alumnes.bossgame.model.Millora;
 import com.example.earaujgi7alumnes.bossgame.model.MilloresAdapter;
-import com.example.earaujgi7alumnes.bossgame.model.Model;
-import com.example.earaujgi7alumnes.bossgame.model.Nivell1;
 
 import java.util.ArrayList;
 
@@ -24,8 +20,8 @@ import java.util.ArrayList;
  */
 
 public class BossMain extends Activity {
-    public static final int GAME_WIDTH = 800;
-    public static final int GAME_HEIGHT = 450;
+    public static final int GAME_WIDTH = 10;
+    public static final int GAME_HEIGHT = 10;
     public static BossView bossV;
     public static Jugador player;
     public static Nivell1 nivellactual;
@@ -38,24 +34,24 @@ public class BossMain extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bossV = new BossView(this, GAME_WIDTH, GAME_HEIGHT,m);
+
         player = new Jugador(100,5);
         nivellactual = new Nivell1(100,10);
         m = new Model(nivellactual,player);
         assets = getAssets();
-
+        bossV = new BossView(this, GAME_WIDTH, GAME_HEIGHT,m);
         setContentView(R.layout.boss_vista);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        FrameLayout surface = (FrameLayout)findViewById(R.id.surfaceBoss);
+        RelativeLayout surface = (RelativeLayout)findViewById(R.id.surfaceBoss);
         surface.addView(bossV);
 
-        bossV.setOnClickListener(new View.OnClickListener() {
+        /*bossV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO restar vida al bossV
             }
-        });
+        });*/
 
 
 

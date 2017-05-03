@@ -1,4 +1,4 @@
-package com.example.earaujgi7alumnes.bossgame.model;
+package com.example.earaujgi7alumnes.bossgame;
 
 
 import android.graphics.Bitmap;
@@ -42,7 +42,7 @@ public class Nivell1 {
 
 
     public void updateBoss(float v,int dmg) { // v -> segundos des de la ultima update
-        this.setVida(dmg-this.getVida());
+        this.setVida(dmg-this.getVida()); //TODO vida be
     }
 
     public void renderBoss(Painter g) {

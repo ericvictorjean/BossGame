@@ -7,7 +7,6 @@ import android.graphics.Rect;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import com.example.earaujgi7alumnes.bossgame.model.Model;
 
 /**
  * Created by earaujgi7.alumnes on 02/05/17.
@@ -19,7 +18,7 @@ class BossView extends SurfaceView implements Runnable{
     private Rect gameImageDst;
     private Canvas gameCanvas;
     private Painter graphics;
-    private Model m;
+    private Model model;
 
     private Thread gameThread;
     private volatile boolean running = false;
@@ -32,11 +31,13 @@ class BossView extends SurfaceView implements Runnable{
         gameImageDst = new Rect();
         gameCanvas = new Canvas(gameImage);
         graphics = new Painter(gameCanvas);
+        model = m;
         SurfaceHolder holder = getHolder();
         holder.addCallback(new SurfaceHolder.Callback() {
 
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
+                Assets.load();
                 initGame();
             }
 
@@ -72,8 +73,9 @@ class BossView extends SurfaceView implements Runnable{
     }
 
     private void updateAndRender(long delta) {
-        m.nivellActual.updateBoss((delta / 1000f),1); // segundos
-        m.nivellActual.renderBoss(graphics);
+        Nivell1 nivellAct = model.getNivellActual();
+        nivellAct.updateBoss((delta / 1000f),1);
+        nivellAct.renderBoss(graphics);
         renderGameImage();
     }
 
@@ -94,7 +96,7 @@ class BossView extends SurfaceView implements Runnable{
             long deltaMillis = sleepDurationMillis + updateDurationMillis;
             updateAndRender(deltaMillis);
             updateDurationMillis = (System.nanoTime() - beforeUpdateRender) / 1000000L;//milisegundos
-            sleepDurationMillis = Math.max(2, 17 - updateDurationMillis);
+            sleepDurationMillis = Math.max(2, 40 - updateDurationMillis);
             try {
                 Thread.sleep(sleepDurationMillis);
             } catch (Exception e) {

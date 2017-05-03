@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <FrameLayout
+    <RelativeLayout
         android:id="@+id/surfaceBoss"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0.5">
 
 
-    </FrameLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
