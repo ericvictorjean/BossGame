@@ -7,18 +7,23 @@ import java.util.ArrayList;
  */
 
 public class Millora {
-    private int cost;
+    private int cost,tipus;
     private int dany, vida;
 
 
-    public Millora(int c, int d, int v) {
+    public Millora(int c, int d, int v, int t) {
         cost = c;
         dany = d;
         vida = v;
+        tipus = t;
     }
 
     public String getCost() {
         return String.valueOf(cost);
+    }
+
+    public String getTipus() {
+        return String.valueOf(tipus);
     }
 
     public String getValor() {
@@ -28,13 +33,26 @@ public class Millora {
 
     private static int lastContactId = 0;
 
+    public static ArrayList<Millora> createMillorasLevel(int nLevel) {  //les millores depenen del nivell
+        ArrayList<Millora> milloras = new ArrayList<Millora>();
+        switch (nLevel) {
+        case 1:
+            for (int i = 2; i <= 8; i++) {
+                milloras.add(new Millora(i*100,i*25,i+3,1));
+                milloras.add(new Millora(i*200,i*25,i+3,2));
+            }
+            break;
+        }
+        return milloras;
+    }
+
     public static ArrayList<Millora> createMillorasList(int numContacts) {
-        ArrayList<Millora> contacts = new ArrayList<Millora>();
+        ArrayList<Millora> milloras = new ArrayList<Millora>();
 
         for (int i = 1; i <= numContacts; i++) {
-            contacts.add(new Millora(i,i+2,i+3));
+            milloras.add(new Millora(i,i+2,i+3,1));
         }
 
-        return contacts;
+        return milloras;
     }
 }

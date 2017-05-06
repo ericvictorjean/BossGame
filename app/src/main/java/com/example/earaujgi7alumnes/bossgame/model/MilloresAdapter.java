@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -42,13 +41,13 @@ public class MilloresAdapter extends RecyclerView.Adapter<MilloresAdapter.ViewHo
     }
 
     // Store a member variable for the contacts
-    private List<Millora> mContacts;
+    private List<Millora> millores;
     // Store the context for easy access
     private Context mContext;
 
     // Pass in the contact array into the constructor
-    public MilloresAdapter(Context context, List<Millora> contacts) {
-        mContacts = contacts;
+    public MilloresAdapter(Context context, List<Millora> m) {
+        millores = m;
         mContext = context;
     }
 
@@ -75,20 +74,32 @@ public class MilloresAdapter extends RecyclerView.Adapter<MilloresAdapter.ViewHo
     @Override
     public void onBindViewHolder(MilloresAdapter.ViewHolder viewHolder, int position) {
         // Get the data model based on position
-        Millora millora = mContacts.get(position);
+        Millora millora = millores.get(position);
 
         // Set item views based on your views and data model
         TextView textView = viewHolder.punts;
-        textView.setText(millora.getCost());
+        textView.setText("Cost: "+millora.getCost());
         TextView textView2 = viewHolder.valor;
-        textView2.setText(millora.getValor());
+        textView2.setText("Damage gain: "+millora.getValor()+"%");
         ImageButton button = viewHolder.messageButton;
-        button.setBackgroundResource(R.color.colorAccent);
+
+        switch (millora.getTipus()){
+            case "1": //defensa
+                textView2.setText("Defense gain: "+millora.getValor()+"%");
+                button.setBackgroundResource(R.drawable.shield);
+                break;
+            case "2": // atac
+                textView2.setText("Damage gain: "+millora.getValor()+"%");
+                button.setBackgroundResource(R.drawable.swords);
+
+
+        }
+
     }
 
     // Returns the total count of items in the list
     @Override
     public int getItemCount() {
-        return mContacts.size();
+        return millores.size();
     }
 }

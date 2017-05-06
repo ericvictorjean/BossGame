@@ -40,6 +40,7 @@ public class BossMain extends Activity {
         m = new Model(nivellactual,player);
         assets = getAssets();
         bossV = new BossView(this, GAME_WIDTH, GAME_HEIGHT,m);
+
         setContentView(R.layout.boss_vista);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
@@ -56,9 +57,9 @@ public class BossMain extends Activity {
 
 
         // Lookup the recyclerview in activity layout
-        RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvContacts);
+        RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvBossShop);
         // Initialize millores
-        millores = Millora.createMillorasList(20);
+        millores = Millora.createMillorasLevel(1);
         // Create adapter passing in the sample user data
         MilloresAdapter adapter = new MilloresAdapter(this, millores);
         // Attach the adapter to the recyclerview to populate items
