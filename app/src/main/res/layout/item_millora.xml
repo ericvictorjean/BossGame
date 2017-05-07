@@ -18,25 +18,27 @@
         android:background="@drawable/swords" />
 
     <TextView
-        android:id="@+id/punts"
+        android:id="@+id/percent"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:layout_marginTop="7dp"
         android:layout_marginLeft="20dp"
-        android:layout_weight="0.35"
+        android:layout_weight="0.16"
+        android:textStyle="bold"
         android:text="TextView"
-        android:textSize="15sp"
+        android:textSize="18sp"
         android:textAlignment="center" />
 
     <TextView
-        android:id="@+id/percent"
+        android:id="@+id/punts"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
         android:layout_marginTop="7dp"
         android:layout_marginLeft="20dp"
         android:layout_weight="0.35"
+        android:textStyle="bold"
         android:text="TextView"
-        android:textSize="15sp"
+        android:textSize="18sp"
         android:textAlignment="center" />
 
 </LinearLayout>

@@ -78,18 +78,17 @@ public class MilloresAdapter extends RecyclerView.Adapter<MilloresAdapter.ViewHo
 
         // Set item views based on your views and data model
         TextView textView = viewHolder.punts;
-        textView.setText("Cost: "+millora.getCost());
+        textView.setText("   Cost:\n"+millora.getCost());
         TextView textView2 = viewHolder.valor;
-        textView2.setText("Damage gain: "+millora.getValor()+"%");
         ImageButton button = viewHolder.messageButton;
 
         switch (millora.getTipus()){
             case "1": //defensa
-                textView2.setText("Defense gain: "+millora.getValor()+"%");
+                textView2.setText("   Defense gain:\n "+millora.getValor()+"%");
                 button.setBackgroundResource(R.drawable.shield);
                 break;
             case "2": // atac
-                textView2.setText("Damage gain: "+millora.getValor()+"%");
+                textView2.setText("   Damage gain:\n "+millora.getValor()+"%");
                 button.setBackgroundResource(R.drawable.swords);
 
 
