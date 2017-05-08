@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.earaujgi7alumnes.bossgame.model.Jugador;
 import com.example.earaujgi7alumnes.bossgame.model.Millora;
@@ -27,6 +28,8 @@ public class BossMain extends Activity {
     public static Nivell1 nivellactual;
     public static Model m;
     public static AssetManager assets;
+    int clicks = 0;
+
 
     ArrayList<Millora> millores;
 
@@ -40,6 +43,7 @@ public class BossMain extends Activity {
         m = new Model(nivellactual,player);
         assets = getAssets();
         bossV = new BossView(this, GAME_WIDTH, GAME_HEIGHT,m);
+        final TextView clicktext = (TextView)findViewById(R.id.Clicks);
 
         setContentView(R.layout.boss_vista);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -51,6 +55,8 @@ public class BossMain extends Activity {
             @Override
             public void onClick(View v) {
                 //TODO restar vida al bossV
+                clicks++;
+                clickText.setText(clicks + "clicks");
             }
         });*/
 
