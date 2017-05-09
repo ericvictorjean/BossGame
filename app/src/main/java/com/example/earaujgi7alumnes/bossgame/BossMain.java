@@ -40,6 +40,8 @@ public class BossMain extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.boss_vista);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         player = new Jugador();
         player.nouNivell(500,1,1000);
@@ -47,8 +49,6 @@ public class BossMain extends Activity {
         m = new Model(nivellactual,player);
 
         bossV = new BossView(this,m);
-        setContentView(R.layout.boss_vista);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         bossV.initGame();
 
         TextView vida = (TextView)findViewById(R.id.vidaBoss);
@@ -61,9 +61,12 @@ public class BossMain extends Activity {
             public void onClick(View v) {
                 ImageView mImageViewSelector = (ImageView)findViewById(R.id.imageview_animated_selector);
                 mImageViewSelector.setActivated(!mImageViewSelector.isActivated());
+
                 m.getBoss().treureVida(m.getPlayer().getPuntsmal());
+
                 TextView vida = (TextView)findViewById(R.id.vidaBoss);
                 vida.setText(String.valueOf(m.getBoss().getVida()));
+
                 if(m.getBoss().getVida() < 0){
                     setContentView(R.layout.youwin);
                 }
@@ -113,6 +116,8 @@ public class BossMain extends Activity {
         });
     }
 
+    public void doNothing(){
 
+    }
 
 }

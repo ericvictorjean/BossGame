@@ -10,6 +10,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 /**
@@ -47,8 +48,13 @@ class BossView implements Runnable{
     }
 
     private void updateAndRender(long delta) {
-        Boss1 nivellAct = model.getBoss();
-        nivellAct.updateBoss((delta / 1000f),1);//segundos
+        model.actualizardatos(delta,model.getBoss().getPuntsmal());
+
+        TextView vidaJugador = (TextView)context.findViewById(R.id.vidaJugador);
+        vidaJugador.setText(String.valueOf(model.getPlayer().getVida()));
+
+        TextView puntsJugador = (TextView)context.findViewById(R.id.punts);
+        puntsJugador.setText(String.valueOf(model.getPlayer().getDiners()));
 
     }
 

@@ -33,9 +33,4 @@ public class Boss1 {
     public void treureVida(int mal) {
         this.vida -= mal;
     }
-
-
-    public void updateBoss(float v,int dmg) { // v -> segundos des de la ultima update
-        this.setVida(this.getVida()-1); //TODO vida be
-    }
 }

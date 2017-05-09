@@ -8,16 +8,19 @@ public class Jugador {
     int vida;
     int puntsmal;
     int diners;
+    float tempsUltimHit;
 
     public Jugador(){
         this.vida = 0;
         this.puntsmal = 0;
         this.diners = 0;
+        tempsUltimHit = 0;
     }
     public void nouNivell(int v, int m, int d) {
         this.vida = v;
         this.puntsmal = m;
         this.diners = d;
+        tempsUltimHit = 0;
     }
     public int getDiners() {
         return diners;
@@ -49,6 +52,14 @@ public class Jugador {
 
     public void menysVida(int vida) {
         this.vida -= vida;
+    }
+
+    public void updateJugador(float v, int dmg){
+        tempsUltimHit += v;
+        while (tempsUltimHit>1000) {
+            menysVida(dmg);
+            tempsUltimHit -= 1000;
+        }
     }
 
 }

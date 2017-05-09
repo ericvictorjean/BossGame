@@ -17,8 +17,12 @@ public class Model {
         this.player = player;
     }
 
-    public static Boss1 getBoss() {
+    public Boss1 getBoss() {
         return bossActual;
+    }
+
+    public Jugador getPlayer() {
+        return player;
     }
 
     public void setBossActual(Boss1 nivellActual) {
@@ -29,16 +33,7 @@ public class Model {
         this.player = player;
     }
 
-    public Jugador getPlayer() {
-        return player;
-    }
-
-    public void actualizardatos(int dmgjugador){
-        this.player.mesPuntsmal(dmgjugador);
-    }
-
-    public void actualizardatos(int vidajugador,int vidaBoss){
-        this.player.mesVida(vidajugador);
-        this.bossActual.setVida(vidaBoss - this.player.getPuntsmal());
+    public void actualizardatos(float f,int dmgjugador){
+        this.player.updateJugador(f,dmgjugador);
     }
 }
