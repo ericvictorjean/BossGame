@@ -19,15 +19,15 @@ import android.widget.TextView;
 
 class BossView implements Runnable{
     private Model model;
-    private Activity context;
+    private CanalCallBack canalCallBack;
 
     private Thread gameThread;
     private volatile boolean running = false;
 
 
-    public BossView(Activity context, Model model) {
+    public BossView(CanalCallBack cBack, Model model) {
         this.model = model;
-        this.context = context;
+        this.canalCallBack = cBack;
     }
 
     public void initGame() {
@@ -50,11 +50,8 @@ class BossView implements Runnable{
     private void updateAndRender(long delta) {
         model.actualizardatos(delta,model.getBoss().getPuntsmal());
 
-        TextView vidaJugador = (TextView)context.findViewById(R.id.vidaJugador);
-        vidaJugador.setText(String.valueOf(model.getPlayer().getVida()));
+        this.canalCallBack.UpdateTextBoss(String.valueOf(model.getPlayer().getVida()),String.valueOf(model.getPlayer().getDiners()));
 
-        TextView puntsJugador = (TextView)context.findViewById(R.id.punts);
-        puntsJugador.setText(String.valueOf(model.getPlayer().getDiners()));
 
     }
 

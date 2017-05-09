@@ -25,13 +25,14 @@ import java.util.ArrayList;
  * Created by earaujgi7.alumnes on 02/05/17.
  */
 
-public class BossMain extends Activity {
+public class BossMain extends Activity implements CanalCallBack {
     public static final int GAME_WIDTH = 10;
     public static final int GAME_HEIGHT = 10;
     public static BossView bossV;
     public static Jugador player;
     public static Boss1 nivellactual;
     public static Model m;
+    public int contador = 0;
 
 
     ArrayList<Millora> millores;
@@ -116,8 +117,13 @@ public class BossMain extends Activity {
         });
     }
 
-    public void doNothing(){
+    @Override
+    public void UpdateTextBoss(String vidaJ, String puntsJ) {
+        /*TextView vidaJugador = (TextView)findViewById(R.id.vidaJugador);
+        vidaJugador.setText(vidaJ);
 
+        TextView puntsJugador = (TextView)findViewById(R.id.diners);
+        puntsJugador.setText(puntsJ);*/
     }
 
 }
