@@ -37,9 +37,9 @@ public class Millora {
         ArrayList<Millora> milloras = new ArrayList<Millora>();
         switch (nLevel) {
         case 1:
-            for (int i = 2; i <= 8; i++) {
+            for (int i = 1; i <= 8; i++) {
                 milloras.add(new Millora(i*100,i*25,i+3,1));
-                milloras.add(new Millora(i*200,i*25,i+3,2));
+                milloras.add(new Millora(i*200,i*(i+1),i+3,2));
             }
             break;
         }

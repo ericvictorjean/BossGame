@@ -105,11 +105,11 @@ public class MilloresAdapter extends RecyclerView.Adapter<MilloresAdapter.ViewHo
 
         switch (millora.getTipus()){
             case 1://defensa
-                textView2.setText(" Defense:\n "+millora.getValor()+"%");
+                textView2.setText(" Health gains:\n "+millora.getValor()+" points");
                 //button.setBackgroundResource(R.drawable.shield);
                 break;
             case 2: // atac
-                textView2.setText(" Damage:\n "+millora.getValor()+"%");
+                textView2.setText(" Attack gains \n "+millora.getValor()+" damage");
                 //button.setBackgroundResource(R.drawable.swords);
 
 

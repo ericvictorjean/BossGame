@@ -8,14 +8,14 @@
     tools:context="com.example.earaujgi7alumnes.bossgame.MainActivity">
 
     <TextView
-        android:id="@+id/GameOver"
+        android:id="@+id/YouWin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:text="GameOver"
+        android:text="You Win"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

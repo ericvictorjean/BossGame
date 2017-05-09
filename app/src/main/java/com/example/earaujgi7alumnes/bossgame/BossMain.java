@@ -69,7 +69,7 @@ public class BossMain extends Activity {
                 TextView vida = (TextView)findViewById(R.id.vidaBoss);
                 vida.setText(String.valueOf(m.getBoss().getVida()));
                 if(m.getBoss().getVida() < 0){
-                    setContentView(R.layout.gameover);
+                    setContentView(R.layout.youwin);
                 }
             }
         });
@@ -101,12 +101,12 @@ public class BossMain extends Activity {
                     player.menysDiners(preu);
                     switch (currentMillora.getTipus()){
                         case 1:
-
                             player.mesVida(currentMillora.getValor());
+                            Toast.makeText(BossMain.this, "vida total "+player.getVida(), Toast.LENGTH_SHORT).show(); //mostra la vida
                             break;
+
                         case 2:
                             player.mesPuntsmal(currentMillora.getValor());
-
                             break;
                     }
 
