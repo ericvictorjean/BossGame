@@ -8,21 +8,21 @@ import com.example.earaujgi7alumnes.bossgame.model.Jugador;
  */
 
 public class Model {
-    private static Nivell1 nivellActual;
+    private static Boss1 bossActual;
     Jugador player;
 
 
-    public Model(Nivell1 nivell, Jugador player){
-        this.nivellActual = nivell;
+    public Model(Boss1 nivell, Jugador player){
+        this.bossActual = nivell;
         this.player = player;
     }
 
-    public static Nivell1 getNivell() {
-        return nivellActual;
+    public static Boss1 getBoss() {
+        return bossActual;
     }
 
-    public void setNivellActual(Nivell1 nivellActual) {
-        this.nivellActual = nivellActual;
+    public void setBossActual(Boss1 nivellActual) {
+        this.bossActual = nivellActual;
     }
 
     public void setPlayer(Jugador player) {
@@ -33,16 +33,12 @@ public class Model {
         return player;
     }
 
-    public Nivell1 getNivellActual() {
-        return nivellActual;
-    }
-
     public void actualizardatos(int dmgjugador){
         this.player.setPuntsmal(dmgjugador);
     }
 
     public void actualizardatos(int vidajugador,int vidaBoss){
         this.player.setVida(vidajugador);
-        this.nivellActual.setVida(vidaBoss - this.player.getPuntsmal());
+        this.bossActual.setVida(vidaBoss - this.player.getPuntsmal());
     }
 }

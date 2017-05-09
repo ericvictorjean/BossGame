@@ -85,11 +85,11 @@ public class MilloresAdapter extends RecyclerView.Adapter<MilloresAdapter.ViewHo
         switch (millora.getTipus()){
             case "1": //defensa
                 textView2.setText(" Defense:\n "+millora.getValor()+"%");
-                button.setBackgroundResource(R.drawable.shield);
+                //button.setBackgroundResource(R.drawable.shield);
                 break;
             case "2": // atac
                 textView2.setText(" Damage:\n "+millora.getValor()+"%");
-                button.setBackgroundResource(R.drawable.swords);
+                //button.setBackgroundResource(R.drawable.swords);
 
 
         }

@@ -15,11 +15,11 @@ import com.example.earaujgi7alumnes.bossgame.R;
  * Created by earaujgi7.alumnes on 02/05/17.
  */
 
-public class Nivell1 {
+public class Boss1 {
     int vida;
     int puntsmal;
 
-    public Nivell1(int vida,int puntsmal){
+    public Boss1(int vida, int puntsmal){
         this.vida = 100;
         this.puntsmal = 10;
     }
@@ -38,6 +38,10 @@ public class Nivell1 {
 
     public void setVida(int vida) {
         this.vida = vida;
+    }
+
+    public void treureVida(int mal) {
+        this.vida -= mal;
     }
 
 

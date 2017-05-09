@@ -37,7 +37,7 @@ class BossView extends SurfaceView implements Runnable{
 
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
-                Assets.load();
+                //Assets.load();
                 initGame();
             }
 
@@ -73,7 +73,7 @@ class BossView extends SurfaceView implements Runnable{
     }
 
     private void updateAndRender(long delta) {
-        Nivell1 nivellAct = model.getNivellActual();
+        Boss1 nivellAct = model.getBoss();
         nivellAct.updateBoss((delta / 1000f),1);
         nivellAct.renderBoss(graphics);
         renderGameImage();
