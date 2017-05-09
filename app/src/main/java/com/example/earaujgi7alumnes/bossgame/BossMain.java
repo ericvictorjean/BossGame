@@ -68,6 +68,9 @@ public class BossMain extends Activity {
                 m.getBoss().treureVida(m.getPlayer().getPuntsmal());
                 TextView vida = (TextView)findViewById(R.id.vidaBoss);
                 vida.setText(String.valueOf(m.getBoss().getVida()));
+                if(m.getBoss().getVida() < 0){
+                    setContentView(R.layout.gameover);
+                }
             }
         });
 
