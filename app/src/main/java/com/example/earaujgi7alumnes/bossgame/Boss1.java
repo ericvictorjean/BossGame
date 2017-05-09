@@ -1,16 +1,6 @@
 package com.example.earaujgi7alumnes.bossgame;
 
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-
-import com.example.earaujgi7alumnes.bossgame.Assets;
-import com.example.earaujgi7alumnes.bossgame.BossMain;
-import com.example.earaujgi7alumnes.bossgame.Painter;
-import com.example.earaujgi7alumnes.bossgame.R;
-
 /**
  * Created by earaujgi7.alumnes on 02/05/17.
  */

@@ -7,6 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -30,8 +32,6 @@ public class BossMain extends Activity {
     public static Jugador player;
     public static Boss1 nivellactual;
     public static Model m;
-    public static AssetManager assets;
-    int clicks = 0;
 
 
     ArrayList<Millora> millores;
@@ -45,26 +45,22 @@ public class BossMain extends Activity {
         player.nouNivell(500,1,1000);
         nivellactual = new Boss1(100,10);
         m = new Model(nivellactual,player);
-        assets = getAssets();
-        Assets.load();
 
-        bossV = new BossView(this, GAME_WIDTH, GAME_HEIGHT,m);
-
+        bossV = new BossView(this,m);
         setContentView(R.layout.boss_vista);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
+        bossV.initGame();
 
         TextView vida = (TextView)findViewById(R.id.vidaBoss);
         vida.setText(String.valueOf(m.getBoss().getVida()));
 
 
-
         LinearLayout surface = (LinearLayout)findViewById(R.id.surfaceBoss);
-        //surface.addView(bossV);
-
         surface.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ImageView mImageViewSelector = (ImageView)findViewById(R.id.imageview_animated_selector);
+                mImageViewSelector.setActivated(!mImageViewSelector.isActivated());
                 m.getBoss().treureVida(m.getPlayer().getPuntsmal());
                 TextView vida = (TextView)findViewById(R.id.vidaBoss);
                 vida.setText(String.valueOf(m.getBoss().getVida()));
@@ -116,5 +112,7 @@ public class BossMain extends Activity {
             }
         });
     }
+
+
 
 }

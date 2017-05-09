@@ -1,11 +1,15 @@
 package com.example.earaujgi7alumnes.bossgame;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 
 /**
@@ -14,16 +18,18 @@ import android.view.SurfaceView;
 
 class BossView implements Runnable{
     private Model model;
+    private Activity context;
 
     private Thread gameThread;
     private volatile boolean running = false;
 
 
-    public BossView(Model m) {
-        model = m;
+    public BossView(Activity context, Model model) {
+        this.model = model;
+        this.context = context;
     }
 
-    private void initGame() {
+    public void initGame() {
         running = true;
         gameThread = new Thread(this, "Game Thread");
         gameThread.start();
@@ -43,15 +49,6 @@ class BossView implements Runnable{
     private void updateAndRender(long delta) {
         Boss1 nivellAct = model.getBoss();
         nivellAct.updateBoss((delta / 1000f),1);//segundos
-        renderBoss();
-        renderGameImage();
-    }
-
-    private void renderBoss() {
-
-    }
-
-    private void renderGameImage() {
 
     }
 
