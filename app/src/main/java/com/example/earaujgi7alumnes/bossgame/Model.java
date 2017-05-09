@@ -34,11 +34,11 @@ public class Model {
     }
 
     public void actualizardatos(int dmgjugador){
-        this.player.setPuntsmal(dmgjugador);
+        this.player.mesPuntsmal(dmgjugador);
     }
 
     public void actualizardatos(int vidajugador,int vidaBoss){
-        this.player.setVida(vidajugador);
+        this.player.mesVida(vidajugador);
         this.bossActual.setVida(vidaBoss - this.player.getPuntsmal());
     }
 }

@@ -7,10 +7,20 @@ package com.example.earaujgi7alumnes.bossgame.model;
 public class Jugador {
     int vida;
     int puntsmal;
+    int diners;
 
-    public Jugador(int vida,int puntsmal){
-        this.vida = vida;
-        this.puntsmal = puntsmal;
+    public Jugador(){
+        this.vida = 0;
+        this.puntsmal = 0;
+        this.diners = 0;
+    }
+    public void nouNivell(int v, int m, int d) {
+        this.vida = v;
+        this.puntsmal = m;
+        this.diners = d;
+    }
+    public int getDiners() {
+        return diners;
     }
 
     public int getPuntsmal() {
@@ -21,12 +31,24 @@ public class Jugador {
         return vida;
     }
 
-    public void setPuntsmal(int puntsmal) {
-        this.puntsmal = puntsmal;
+    public void menysDiners(int diners) {
+        this.diners -= diners;
     }
 
-    public void setVida(int vida) {
-        this.vida = vida;
+    public void mesDiners(int diners) {
+        this.diners += diners;
+    }
+
+    public void mesPuntsmal(int puntsmal) {
+        this.puntsmal += puntsmal;
+    }
+
+    public void mesVida(int vida) {
+        this.vida += vida;
+    }
+
+    public void menysVida(int vida) {
+        this.vida -= vida;
     }
 
 }

@@ -18,6 +18,20 @@ import java.util.List;
 
 public class MilloresAdapter extends RecyclerView.Adapter<MilloresAdapter.ViewHolder> {
 
+    // Store a member variable for the contacts
+    private List<Millora> millores;
+    // Store the context for easy access
+    private Context mContext;
+    // Define listener member variable
+    private static OnItemClickListener listener;
+
+
+    // Pass in the contact array into the constructor
+    public MilloresAdapter(Context context, List<Millora> m) {
+        millores = m;
+        mContext = context;
+    }
+
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -29,10 +43,22 @@ public class MilloresAdapter extends RecyclerView.Adapter<MilloresAdapter.ViewHo
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             // Stores the itemView in a public final member variable that can be used
             // to access the context from any ViewHolder instance.
             super(itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Triggers click upwards to the adapter on click
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(itemView, position);
+                        }
+                    }
+                }
+            });
 
             punts = (TextView) itemView.findViewById(R.id.punts);
             valor = (TextView) itemView.findViewById(R.id.percent);
@@ -40,20 +66,15 @@ public class MilloresAdapter extends RecyclerView.Adapter<MilloresAdapter.ViewHo
         }
     }
 
-    // Store a member variable for the contacts
-    private List<Millora> millores;
-    // Store the context for easy access
-    private Context mContext;
-
-    // Pass in the contact array into the constructor
-    public MilloresAdapter(Context context, List<Millora> m) {
-        millores = m;
-        mContext = context;
-    }
-
     // Easy access to the context object in the recyclerview
     private Context getContext() {
         return mContext;
+    }
+
+    // Returns the total count of items in the list
+    @Override
+    public int getItemCount() {
+        return millores.size();
     }
 
     // Usually involves inflating a layout from XML and returning the holder
@@ -83,11 +104,11 @@ public class MilloresAdapter extends RecyclerView.Adapter<MilloresAdapter.ViewHo
         ImageButton button = viewHolder.messageButton;
 
         switch (millora.getTipus()){
-            case "1": //defensa
+            case 1://defensa
                 textView2.setText(" Defense:\n "+millora.getValor()+"%");
                 //button.setBackgroundResource(R.drawable.shield);
                 break;
-            case "2": // atac
+            case 2: // atac
                 textView2.setText(" Damage:\n "+millora.getValor()+"%");
                 //button.setBackgroundResource(R.drawable.swords);
 
@@ -96,9 +117,15 @@ public class MilloresAdapter extends RecyclerView.Adapter<MilloresAdapter.ViewHo
 
     }
 
-    // Returns the total count of items in the list
-    @Override
-    public int getItemCount() {
-        return millores.size();
+    // Define the listener interface
+    public interface OnItemClickListener {
+        void onItemClick(View itemView, int position);
     }
+
+    // Define the method that allows the parent activity or fragment to define the listener
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+
 }

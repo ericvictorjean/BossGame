@@ -18,17 +18,17 @@ public class Millora {
         tipus = t;
     }
 
-    public String getCost() {
-        return String.valueOf(cost);
+    public int getCost() {
+        return cost;
     }
 
-    public String getTipus() {
-        return String.valueOf(tipus);
+    public int getTipus() {
+        return tipus;
     }
 
-    public String getValor() {
-        if (dany != 0) return String.valueOf(dany);
-        return String.valueOf(vida);
+    public int getValor() {
+        if (dany != 0) return dany;
+        return vida;
     }
 
     private static int lastContactId = 0;
