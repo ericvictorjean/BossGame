@@ -48,11 +48,4 @@ public class Boss1 {
     public void updateBoss(float v,int dmg) { // v -> segundos des de la ultima update
         this.setVida(this.getVida()-1); //TODO vida be
     }
-
-    public void renderBoss(Painter g) {
-        g.setColor(Color.rgb(208, 244, 247));
-        g.fillRect(0, 0, BossMain.GAME_WIDTH, BossMain.GAME_HEIGHT);
-        g.drawImage(Assets.jefe, 0, 405);
-
-    }
 }

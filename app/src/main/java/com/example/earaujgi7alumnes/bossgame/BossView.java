@@ -12,47 +12,15 @@ import android.view.SurfaceView;
  * Created by earaujgi7.alumnes on 02/05/17.
  */
 
-class BossView extends SurfaceView implements Runnable{
-    private Bitmap gameImage;
-    private Rect gameImageSrc;
-    private Rect gameImageDst;
-    private Canvas gameCanvas;
-    private Painter graphics;
+class BossView implements Runnable{
     private Model model;
 
     private Thread gameThread;
     private volatile boolean running = false;
 
 
-    public BossView(Context context, int gameWidth, int gameHeight,Model m) {
-        super(context);
-        gameImage = Bitmap.createBitmap(gameWidth, gameHeight, Bitmap.Config.RGB_565);
-        gameImageSrc = new Rect(0, 0, gameImage.getWidth(), gameImage.getHeight());
-        gameImageDst = new Rect();
-        gameCanvas = new Canvas(gameImage);
-        graphics = new Painter(gameCanvas);
+    public BossView(Model m) {
         model = m;
-        SurfaceHolder holder = getHolder();
-        holder.addCallback(new SurfaceHolder.Callback() {
-
-            @Override
-            public void surfaceCreated(SurfaceHolder holder) {
-                //Assets.load();
-                initGame();
-            }
-
-            @Override
-            public void surfaceChanged(SurfaceHolder holder, int format,
-                                       int width, int height) {
-                // TODO Auto-generated method stub
-            }
-
-            @Override
-            public void surfaceDestroyed(SurfaceHolder holder) {
-                pauseGame();
-            }
-
-        });
     }
 
     private void initGame() {
@@ -74,18 +42,17 @@ class BossView extends SurfaceView implements Runnable{
 
     private void updateAndRender(long delta) {
         Boss1 nivellAct = model.getBoss();
-        nivellAct.updateBoss((delta / 1000f),1);
-        nivellAct.renderBoss(graphics);
+        nivellAct.updateBoss((delta / 1000f),1);//segundos
+        renderBoss();
         renderGameImage();
     }
 
+    private void renderBoss() {
+
+    }
+
     private void renderGameImage() {
-        Canvas screen = getHolder().lockCanvas();
-        if (screen != null) {
-            screen.getClipBounds(gameImageDst);
-            screen.drawBitmap(gameImage, gameImageSrc, gameImageDst,null);
-            getHolder().unlockCanvasAndPost(screen);
-        }
+
     }
 
     public void run() {
